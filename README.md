@@ -36,8 +36,8 @@ git clone --branch main --single-branch '<approved Forgejo Git clone URL>' agent
 On Windows, use Git for Windows and Tailscale; private environment recovery also
 needs Windows OpenSSH Client (`ssh`, `scp`, `ssh-keygen`). That recovery has a
 native PowerShell `bootstrap.ps1` entrypoint in the checkout's
-`skills/environment-sync/scripts/` directory. Read
-`skills/environment-sync/references/machine-bootstrap.md` before running it.
+`skills/toolkit-sync/scripts/` directory. Read
+`skills/toolkit-sync/references/environment/machine-bootstrap.md` before running it.
 The archive owner ID comes from trusted private
 registration or the administrator; it is independent of the Forgejo repository's
 user/organization namespace. Do not substitute the namespace or retry guessed
