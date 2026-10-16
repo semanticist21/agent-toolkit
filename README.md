@@ -20,6 +20,10 @@ Do not install a historical version from this repository or use it as a fallback
    target remains unknown or ambiguous, ask the administrator once for the full
    repository URL and missing host trust, rather than separate user/organization
    fields. Internal network names and credentials are intentionally not published here.
+   If toolkit-sync is already installed but local registration/checkouts are
+   missing, run its bundled machine-bootstrap client first on the verified
+   approved Tailnet. Its server-registered default needs no owner or source URL;
+   the recovered private checkout supplies `toolkit-source.json` and forge trust.
 3. Use that registered MagicDNS hostname, not a remembered LAN address. Tailscale
    connectivity does not replace Forgejo authorization. If SSH access is missing,
    create a key on this device and register only its public key with Forgejo.
@@ -38,10 +42,11 @@ needs Windows OpenSSH Client (`ssh`, `scp`, `ssh-keygen`). That recovery has a
 native PowerShell `bootstrap.ps1` entrypoint in the checkout's
 `skills/toolkit-sync/scripts/` directory. Read
 `skills/toolkit-sync/references/environment/machine-bootstrap.md` before running it.
-The archive owner ID comes from trusted private
-registration or the administrator; it is independent of the Forgejo repository's
-user/organization namespace. Do not substitute the namespace or retry guessed
-owners when the archive refuses a path. Toolkit's shell/vendor setup has separate
+Omit the owner argument to read the archive's registered default `bootstrap.json`;
+an existing private bootstrap checkout is not a prerequisite. An explicit archive
+owner comes from trusted private registration and is independent of the Forgejo
+repository namespace. Do not substitute the namespace or retry guessed owners
+when the archive refuses a path. Toolkit's shell/vendor setup has separate
 prerequisites; completing archive recovery alone does not verify runtime setup.
 
 Ask your agent to read `agent-toolkit/skills/toolkit-sync/SKILL.md` **from that
