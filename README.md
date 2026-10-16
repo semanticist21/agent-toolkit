@@ -8,11 +8,18 @@ Do not install a historical version from this repository or use it as a fallback
 
 1. Install [Tailscale](https://tailscale.com/download) and sign in to the existing
    network approved by your organization. Do not create a replacement network.
-2. Obtain the Forgejo **Git clone URL** and SSH host-key fingerprint from the
-   organization's trusted access registration or administrator. Existing machines
-   find the source registration via `~/.agents/doc/AGENTS.local.md` and its private
-   baseline's `toolkit-source.json`. A new machine needs the approved address;
-   internal network names and credentials are intentionally not published here.
+2. Resolve the Forgejo **Git clone URL** and SSH host trust. Reuse an already
+   supplied repository URL; its user/organization namespace is part of the URL,
+   not another required input. Existing machines find the source registration via
+   `~/.agents/doc/AGENTS.local.md` and its private baseline's `toolkit-source.json`.
+   If only the approved Forgejo instance is known, use its existing signed-in
+   browser or authenticated API session to find the canonical `agent-toolkit`
+   repository, including organization repositories, and read its clone URL.
+   Verify it against available trusted context; a same-named fork or mirror is
+   not a replacement. Do not assume the login name owns the repository. If the
+   target remains unknown or ambiguous, ask the administrator once for the full
+   repository URL and missing host trust, rather than separate user/organization
+   fields. Internal network names and credentials are intentionally not published here.
 3. Use that registered MagicDNS hostname, not a remembered LAN address. Tailscale
    connectivity does not replace Forgejo authorization. If SSH access is missing,
    create a key on this device and register only its public key with Forgejo.
