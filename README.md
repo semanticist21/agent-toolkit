@@ -33,6 +33,17 @@ With Git installed, replace the placeholder with the approved credential-free UR
 git clone --branch main --single-branch '<approved Forgejo Git clone URL>' agent-toolkit
 ```
 
+On Windows, use Git for Windows and Tailscale; private environment recovery also
+needs Windows OpenSSH Client (`ssh`, `scp`, `ssh-keygen`). That recovery has a
+native PowerShell `bootstrap.ps1` entrypoint in the checkout's
+`skills/environment-sync/scripts/` directory. Read
+`skills/environment-sync/references/machine-bootstrap.md` before running it.
+The archive owner ID comes from trusted private
+registration or the administrator; it is independent of the Forgejo repository's
+user/organization namespace. Do not substitute the namespace or retry guessed
+owners when the archive refuses a path. Toolkit's shell/vendor setup has separate
+prerequisites; completing archive recovery alone does not verify runtime setup.
+
 Ask your agent to read `agent-toolkit/skills/toolkit-sync/SKILL.md` **from that
 Forgejo checkout** and install/run toolkit-sync. Its supporting references are in
 the same checkout; do not copy only SKILL.md or install anything from GitHub history.
